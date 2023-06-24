@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/style.css">
+		<script>
+			var w;
+			var h;
+			var blocks;
+
+			document.addEventListener('DOMContentLoaded', function() {
+				var url = window.location.pathname;
+				var segments = url.split('/');
+				w = segments[1];
+				h = segments[2];
+
+				document.title = w + 'x' + h + ' - Campo Minado';
+
+				blocks = createMines(w, h);
+
+				drawBlocks(w, h);
+			});
+		</script>
+	</head>
+	<body>
+		<script>
+			function createMines(w, h) {
+				let blocks = [];
+				for(let i=0; i<w; i++) {
+					blocks.push([]);
+					for(let j=0; j<h; j++) {
+						blocks[i][j] = 0;
+					}
+				}
+				
+				let mines = Math.ceil(w*h*0.2);
+
+				for(let i=0; i<mines; i++) {
+					let x = Math.floor(Math.random()*w)
+					let y = Math.floor(Math.random()*h)
+					blocks[x][y] = 1;
+				}
+
+				return blocks;
+			}
+
+			function drawBlocks(w, h) {
+				let div = document.getElementById("minas");
+
+				for(let i=0; i<w; i++) {
+					
+					let divC = document.createElement("div");
+					divC.classList.add("center");
+					
+					for(let j=0; j<h; j++) {
+						let b = document.createElement("button");
+						b.innerText = " ";
+						b.onclick = check(blocks,i,j);
+
+						if(check(blocks, i, j)) {
+							b.style.backgroundColor = 'red';
+						}
+						
+						divC.appendChild(b);
+					}
+					div.appendChild(divC);
+				}
+			}
+
+			function check(blocks, i, j) {
+				return blocks[i][j];
+			}
+		</script>
+		
+		<div id="minas" class="buttons center"></div>
+
+	</body>
+</html>
