@@ -12,4 +12,4 @@
 - [ ] win logic
 - [ ] lose logic
 
-_made for fun_(r)
+_made for fun_
