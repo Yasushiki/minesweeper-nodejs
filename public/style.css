@@ -3,7 +3,11 @@ html, body {
 	margin: 0;
   }
 
-.buttons {
+  .buttons {
+	min-height: 100vh;
+}
+
+.buttonsB {
 	min-height: 100vh;
 }
 
@@ -17,6 +21,22 @@ html, body {
 	flex-direction: column;
 }
 
+.center.buttonsB {
+	flex-direction: column;
+}
+
+
+.buttonsB button {
+	width: 50px;
+	height: 50px;
+	margin: 0;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 0;
+	background-color: #ccc;
+	font-size: 30px;
+}
+
 .buttons button {
 	width: 100px;
 	height: 100px;
@@ -24,12 +44,36 @@ html, body {
 	border: none;
 	border-radius: 5px;
 	background-color: #ccc;
+	font-size: 30px;
+}
+
+#p {
+	font-size: 14px;
 }
 
 .buttons button:hover {
 	background-color: #ddd;
 }
 
+.buttonsB button:hover {
+	background-color: #ddd;
+}
+
 .buttons button:active {
 	background-color: #bbb;
+}
+
+.f input {
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #ccc;
+	text-align: center;
+	font-size: 30px;
+}
+
+.flag {
+	background-color: blue;
 }

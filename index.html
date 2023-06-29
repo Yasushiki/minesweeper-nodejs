@@ -5,6 +5,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/style.css">
 		<title>Campo Minado</title>
+		<script>
+			function aaa() {
+				const X = document.getElementById("x").value;
+				const Y = document.getElementById("y").value;
+				
+				if(X<=0 || Y<=0) {
+					location.reload();
+					window.alert("Os valores informados devem ser maiores que 0.");
+				}
+
+				let url = "/"+X+"/"+Y;
+				window.location.assign(url);
+			}
+		</script>
 	</head>
 	<body>
 		<div class="buttons center">
@@ -14,9 +28,14 @@
 			</div>
 			<div class="center">
 				<button onclick="window.location.href = '10/10'">10x10</button>
-				<button>Custom</button>
+				<button onclick="window.location.href = '15/15'">15x15</button>
+			</div>
+			<div class="center f">
+				<input type="number" id="x" value="1">
+				<span>X</span>
+				<input type="number" id="y" value="1">
+				<button onclick="aaa()" id="p">Personalizado</button>
 			</div>
 		</div>
-
 	</body>
 </html>

@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 app.get('/:h(\\d+)/:w(\\d+)', (req, res) => {
 	const height = parseInt(req.params.h);
 	const width = parseInt(req.params.w);
+	console.log(height, width);
 	res.sendFile(path.join(__dirname, 'jogo.html'));
 });
 
